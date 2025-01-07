@@ -62,9 +62,9 @@
 						<applicationName>loyalty-offers-poc</applicationName>
 						<environment>DEV-2</environment>
 						<workerType>MICRO</workerType>
-						<region>us-east-2</region>
+						<region>ca-central-1</region>
 						<workers>1</workers>
-						<objectStoreV2>true</objectStoreV2>
+						<objectStoreV2>false</objectStoreV2>
 						<properties>
 						<mule.security.provider>BC</mule.security.provider>
 					     </properties>
