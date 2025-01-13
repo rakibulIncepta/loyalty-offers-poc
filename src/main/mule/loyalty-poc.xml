@@ -28,7 +28,7 @@ http://www.mulesoft.org/schema/mule/snowflake http://www.mulesoft.org/schema/mul
 		<http:listener doc:name="Listener" doc:id="000ec719-f58f-4441-b73b-a3c1b82a7fc1" config-ref="HTTP_Listener_config" path="/get-offers"/>
 		<set-variable value="#[payload.userAge]" doc:name="Set Variable - Age" doc:id="1f4cfe21-6067-496b-bbef-0c9c89d41200" variableName="userAge"/>
 		<choice doc:name="Choice" doc:id="b393dbda-fee1-4265-b8d1-58f6e43813b0" >
-			<when expression="#[vars.userAge &lt; 18]">
+			<when expression="#[vars.userAge &gt;= 14 and vars.userAge &lt;=22]">
 				<ee:transform doc:name="Transform Message" doc:id="30eeff3a-81e5-4ca7-9c70-0b96d5a7fa3e" >
 					<ee:message >
 						<ee:set-payload ><![CDATA[%dw 2.0
@@ -45,7 +45,7 @@ output application/java
 					</ee:variables>
 				</ee:transform>
 			</when>
-			<when expression="#[vars.userAge &gt;= 18 and vars.userAge &lt;=40]">
+			<when expression="#[vars.userAge &gt;= 23 and vars.userAge &lt;=50]">
 				<ee:transform doc:name="Transform Message" doc:id="e00c7545-dd07-412d-83d7-e51a19d410c0" >
 					<ee:message >
 						<ee:set-payload ><![CDATA[%dw 2.0
@@ -62,7 +62,7 @@ output application/java
 					</ee:variables>
 				</ee:transform>
 			</when>
-			<when expression="#[vars.userAge &gt; 40 and vars.userAge &lt;=65]">
+			<when expression="#[vars.userAge &gt; 50]">
 				<ee:transform doc:name="Transform Message" doc:id="3b71cc81-0131-4a25-87d2-42b874ff6b3a">
 					<ee:message>
 						<ee:set-payload><![CDATA[%dw 2.0
